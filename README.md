@@ -2,14 +2,16 @@
 
 Este projeto consiste em um dashboard interativo desenvolvido com Streamlit para a análise de dados de vendas da Chinook, uma loja de músicas digital fictícia. O dashboard oferece visualizações sobre a receita, clientes, gêneros musicais mais populares e desempenho dos funcionários.
 
-## Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
-- **Python:** Linguagem principal do projeto.
-- **Streamlit:** Framework utilizado para a criação do dashboard web interativo.
-- **Pandas:** Biblioteca para manipulação e análise de dados.
-- **Plotly:** Biblioteca para a criação de gráficos interativos.
-- **SQLite:** Banco de dados relacional que armazena os dados brutos da Chinook.
-- **Parquet:** Formato de arquivo colunar utilizado para armazenar os dados processados, otimizando a leitura e o armazenamento.
+| Tecnologia          | Badge                                                                                             | Descrição                                                                                                       |
+| :------------------ | :------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------- |
+| **Python**    | ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python)          | Linguagem principal do projeto.                                                                                   |
+| **Streamlit** | ![Streamlit](https://img.shields.io/badge/Streamlit-1.10%2B-red?style=for-the-badge&logo=streamlit) | Framework utilizado para a criação do dashboard web interativo.                                                 |
+| **Pandas**    | ![Pandas](https://img.shields.io/badge/Pandas-1.4%2B-blue?style=for-the-badge&logo=pandas)          | Biblioteca para manipulação e análise de dados.                                                                |
+| **Plotly**    | ![Plotly](https://img.shields.io/badge/Plotly-5.9%2B-purple?style=for-the-badge&logo=plotly)        | Biblioteca para a criação de gráficos interativos.                                                             |
+| **SQLite**    | ![SQLite](https://img.shields.io/badge/SQLite-3-blue?style=for-the-badge&logo=sqlite)               | Banco de dados relacional que armazena os dados brutos da Chinook.                                                |
+| **Parquet**   | ![Parquet](https://img.shields.io/badge/Parquet-Apache-yellow?style=for-the-badge&logo=apache)      | Formato de arquivo colunar utilizado para armazenar os dados processados, otimizando a leitura e o armazenamento. |
 
 ## Arquitetura do Projeto
 
@@ -112,5 +114,4 @@ Siga os passos abaixo para executar o dashboard localmente.
    streamlit run src/main.py
 
    ```
-
    A aplicação estará disponível em seu navegador no endereço `http://localhost:8501`.
