@@ -1,5 +1,6 @@
 import streamlit as st
-
+import pandas as pd
+from datetime import datetime
 
 def create_sidebar_filters(df):
     """
@@ -9,10 +10,9 @@ def create_sidebar_filters(df):
         df (pd.DataFrame): O DataFrame carregado com os dados do Parquet.
     
     Returns:
-        tuple: Uma tupla contendo as seleções do usuário para cada filtro.
+        pd.DataFrame: Um novo DataFrame filtrado de acordo com as seleções do usuário.
     """
     st.sidebar.markdown("<h1 style='text-align: center;'> Preferências </h1>", unsafe_allow_html=True)
-
 
     countries = sorted(df['customerCountry'].unique().tolist())
     genres = sorted(df['genreName'].unique().tolist())
@@ -36,8 +36,8 @@ def create_sidebar_filters(df):
         default=[]
     )
 
-    min_date = df['InvoiceDate'].min().to_pydatetime()
-    max_date = df['InvoiceDate'].max().to_pydatetime()
+    min_date = df['InvoiceDate'].min().date()
+    max_date = df['InvoiceDate'].max().date()
 
     selected_date_range = st.sidebar.date_input(
         "Selecione o Período:",
@@ -45,19 +45,18 @@ def create_sidebar_filters(df):
         min_value=min_date,
         max_value=max_date,
     )
-
+    
+    start_date = min_date
+    end_date = max_date
+    
     if len(selected_date_range) == 2:
         start_date, end_date = selected_date_range
-    else:
-        start_date, end_date = min_date, max_date
-        
-    df_filtered = df.copy()
 
+    df_filtered = df.copy()
     df_filtered = df_filtered[
         (df_filtered['InvoiceDate'].dt.date >= start_date) &
         (df_filtered['InvoiceDate'].dt.date <= end_date)
     ]
-
     
     if selected_countries:
         df_filtered = df_filtered[df_filtered['customerCountry'].isin(selected_countries)]
